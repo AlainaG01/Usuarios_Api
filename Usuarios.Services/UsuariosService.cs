@@ -20,7 +20,7 @@ public class UsuariosService(IDbContextFactory<UsuariosContext> DbFactory) : IUs
 		var usuario = await contexto.Usuarios
 			.Where(e => e.UsuariaId == id).Select(p => new UsuariosDto()
 			{
-				UsuarioId = p.UsuariaId,
+				UsuariaId = p.UsuariaId,
 				Nombre = p.Nombre,
 				Balance = p.Balance
 			}).FirstOrDefaultAsync();
@@ -53,7 +53,7 @@ public class UsuariosService(IDbContextFactory<UsuariosContext> DbFactory) : IUs
 		};
 		contexto.Usuarios.Add(usuario);
 		var guardo = await contexto.SaveChangesAsync() > 0;
-		usuarioDto.UsuarioId = usuario.UsuariaId;
+		usuarioDto.UsuariaId = usuario.UsuariaId;
 		return guardo;
 	}
 
@@ -62,7 +62,7 @@ public class UsuariosService(IDbContextFactory<UsuariosContext> DbFactory) : IUs
 		await using var contexto = await DbFactory.CreateDbContextAsync();
 		var usuario = new Usuario()
 		{
-			UsuariaId = usuarioDto.UsuarioId,
+			UsuariaId = usuarioDto.UsuariaId,
 			Nombre = usuarioDto.Nombre,
 			Balance = usuarioDto.Balance
 		};
@@ -81,7 +81,7 @@ public class UsuariosService(IDbContextFactory<UsuariosContext> DbFactory) : IUs
 
 	public async Task<bool> Guardar(UsuariosDto usuario)
 	{
-		if (!await Existe(usuario.UsuarioId))
+		if (!await Existe(usuario.UsuariaId))
 			return await Insertar(usuario);
 		else
 			return await Modificar(usuario);
@@ -92,7 +92,7 @@ public class UsuariosService(IDbContextFactory<UsuariosContext> DbFactory) : IUs
 		await using var contexto = await DbFactory.CreateDbContextAsync();
 		return await contexto.Usuarios.Select(p => new UsuariosDto()
 		{
-			UsuarioId = p.UsuariaId,
+			UsuariaId = p.UsuariaId,
 			Nombre = p.Nombre,
 			Balance = p.Balance,
 		})
