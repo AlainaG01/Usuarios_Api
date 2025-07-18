@@ -15,6 +15,7 @@ public static class ServicesRegistrar
 	{
 		services.RegisterDbContextFactory();
 		services.AddScoped<IUsuariosService, UsuariosService>();
+		services.AddScoped<IVehiculosService, VehiculosServices>();
 		return services;
 	}
 }
