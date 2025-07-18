@@ -28,7 +28,7 @@ public class UsuariosController(IUsuariosService usuariosService) : ControllerBa
 	[HttpPut("{id}")]
 	public async Task<IActionResult> PutUsuarios(int id, UsuariosDto usuariosDto)
 	{
-		if (id != usuariosDto.UsuariaId)
+		if (id != usuariosDto.UsuarioId)
 		{
 			return BadRequest();
 		}
@@ -45,7 +45,7 @@ public class UsuariosController(IUsuariosService usuariosService) : ControllerBa
 	{
 		await usuariosService.Guardar(usuariosDto);
 
-		return CreatedAtAction("GetUsuarios", new { id = usuariosDto.UsuariaId }, usuariosDto);
+		return CreatedAtAction("GetUsuarios", new { id = usuariosDto.UsuarioId }, usuariosDto);
 	}
 
 	// DELETE: api/Usuarios/5

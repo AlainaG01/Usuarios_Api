@@ -10,7 +10,7 @@ namespace Usuarios.Data.Models;
 public class Usuario
 {
 	[Key]
-	public int UsuariaId { get; set; }
+	public int UsuarioId { get; set; }
 
 	[Required(ErrorMessage = "Campo obligatorio")]
 	[RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras")]

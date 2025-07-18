@@ -23,11 +23,11 @@ namespace Usuarios.Data.Migrations
 
             modelBuilder.Entity("Usuarios.Data.Models.Usuario", b =>
                 {
-                    b.Property<int>("UsuariaId")
+                    b.Property<int>("UsuarioId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuariaId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioId"));
 
                     b.Property<double>("Balance")
                         .HasColumnType("float");
@@ -36,7 +36,7 @@ namespace Usuarios.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UsuariaId");
+                    b.HasKey("UsuarioId");
 
                     b.ToTable("Usuarios");
                 });

@@ -8,7 +8,7 @@ namespace Usuarios.Domain.DTO;
 
 public class UsuariosDto
 {
-	public int UsuariaId { get; set; }
+	public int UsuarioId { get; set; }
 	public string? Nombre { get; set; }
 	public double Balance { get; set; }
 }
