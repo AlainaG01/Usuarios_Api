@@ -23,6 +23,20 @@ namespace Usuarios.Data.Migrations
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.UsuariaId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Vehiculo",
+                columns: table => new
+                {
+                    VehiculoId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Precio = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vehiculo", x => x.VehiculoId);
+                });
         }
 
         /// <inheritdoc />
@@ -30,6 +44,9 @@ namespace Usuarios.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Usuarios");
+
+            migrationBuilder.DropTable(
+                name: "Vehiculo");
         }
     }
 }

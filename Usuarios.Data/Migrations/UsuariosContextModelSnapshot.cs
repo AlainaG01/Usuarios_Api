@@ -40,6 +40,26 @@ namespace Usuarios.Data.Migrations
 
                     b.ToTable("Usuarios");
                 });
+
+            modelBuilder.Entity("Usuarios.Data.Models.Vehiculo", b =>
+                {
+                    b.Property<int>("VehiculoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VehiculoId"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Precio")
+                        .HasColumnType("float");
+
+                    b.HasKey("VehiculoId");
+
+                    b.ToTable("Vehiculo");
+                });
 #pragma warning restore 612, 618
         }
     }

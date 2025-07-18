@@ -11,7 +11,7 @@ using Usuarios.Data.Context;
 namespace Usuarios.Data.Migrations
 {
     [DbContext(typeof(UsuariosContext))]
-    [Migration("20250613145734_Inicial")]
+    [Migration("20250718013003_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -42,6 +42,26 @@ namespace Usuarios.Data.Migrations
                     b.HasKey("UsuariaId");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Usuarios.Data.Models.Vehiculo", b =>
+                {
+                    b.Property<int>("VehiculoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VehiculoId"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Precio")
+                        .HasColumnType("float");
+
+                    b.HasKey("VehiculoId");
+
+                    b.ToTable("Vehiculo");
                 });
 #pragma warning restore 612, 618
         }
